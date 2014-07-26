@@ -5313,7 +5313,7 @@ impl<'a> Resolver<'a> {
                 visit::walk_expr(self, expr, ());
             }
 
-            ExprLoop(_, Some(label)) => {
+            ExprLoop(_, Some(label)) | ExprWhile(_, _, Some(label)) => {
                 self.with_label_rib(|this| {
                     let def_like = DlDef(DefLabel(expr.id));
 
